@@ -14,17 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('client.pages.home.index');
+    return view('welcome');
 });
-
-Route::get('/about',function(){
-    return view('client.pages.about.index');
-});
-// Route::get('/',function(){
-//     return view('contact');
-// });
-
-
-
-
-// https://bootstrapmade.com/free-website-templates/
