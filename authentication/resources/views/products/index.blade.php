@@ -15,6 +15,8 @@
         <th>Product name</th>
         <th>Description</th>
         <th>Product price</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     @foreach($products as $product)
     <tr>
@@ -22,16 +24,19 @@
         <td>{{$product->product_name}}</td>
         <td>{{$product->description}}</td>
         <td>{{$product->price}}</td>
+        <td>
+            <a href="{{route('product.edit', ['product'=>$product])}}">Edit</a>
+        </td>
+        <td>
+            <form action="{{route('product.delete', ['product'=>$product])}}" method="POST">
+                @csrf
+                @method('delete')
+                <input type="submit" value="Delete">
+            </form>
+        </td>
     </tr>
     @endforeach
-    @foreach($users as $user)
-    <tr>
-        <td>{{$user->id}}</td>
-        <td>{{$user->name}}</td>
-        <td>{{$user->email}}</td>
-        <td>{{$user->created_at}}</td>
-    </tr>
-    @endforeach
+
 
 </table>
 </body>
